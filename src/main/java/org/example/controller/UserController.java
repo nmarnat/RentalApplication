@@ -12,13 +12,19 @@ import java.util.Optional;
 
 @RestController
 public class UserController {
+
+    private final UserService userService;
+
     @Autowired
-    private UserService userService;
+    public UserController(UserService userService) {
+        this.userService = userService;
+    }
 
     @PostMapping(path="/user")
-    public User addUser (@RequestParam String firstName, @RequestParam String lastName) {
+    public User addUser (@RequestParam String firstName, @RequestParam String lastName,
+                         @RequestParam(name="id",required=false) Integer id) {
         User user = new User();
-//        user.setId(id);
+        user.setId(id);
         user.setFirstName(firstName);
         user.setLastName(lastName);
 

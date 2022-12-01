@@ -7,7 +7,8 @@
     <list default="true" id="4c085bab-f1fb-4352-b0be-6bf6da678ad3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/UserController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/UserServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,6 +20,7 @@
       <list>
         <option value="Class" />
         <option value="Interface" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -65,6 +67,8 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "last_opened_file_path": "E:/Thales/Sycoa/PicataImport",
     "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Project",
@@ -75,11 +79,48 @@
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="org.example.service" />
     </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="org.example.controller" />
+    </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="JUnit.UserControllerTest.testAddUser">
+    <configuration name="UserControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RentalApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.UserControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UserControllerTest.testAddUser" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="RentalApplication" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="org.example.controller.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="org.example.controller" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.UserControllerTest" />
+      <option name="METHOD_NAME" value="testAddUser" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="RentalApplication" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="org.example.Main" />
@@ -95,6 +136,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.UserControllerTest.testAddUser" />
+        <item itemvalue="JUnit.UserControllerTest" />
         <item itemvalue="Spring Boot.Main" />
       </list>
     </recent_temporary>
@@ -109,7 +152,7 @@
       <updated>1669811909640</updated>
       <workItem from="1669811911015" duration="7495000" />
       <workItem from="1669819598751" duration="1492000" />
-      <workItem from="1669899409657" duration="4208000" />
+      <workItem from="1669899409657" duration="8582000" />
     </task>
     <servers />
   </component>
