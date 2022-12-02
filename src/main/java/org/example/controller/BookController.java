@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Optional;
+
 @RestController
 public class BookController {
 
@@ -29,5 +31,10 @@ public class BookController {
     @GetMapping(path="/books")
     public Iterable<Book> getAllBooks() {
         return bookService.findAll();
+    }
+
+    @GetMapping(path= "/book")
+    public Optional<Book> getBookByName(@RequestParam String name) {
+        return bookService.findByName(name);
     }
 }

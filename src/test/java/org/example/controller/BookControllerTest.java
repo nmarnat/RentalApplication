@@ -19,6 +19,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
 
 @ExtendWith(MockitoExtension.class)
 @WebMvcTest(value = BookController.class)
@@ -60,6 +61,22 @@ class BookControllerTest {
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
         String expected = "[{\"name\":\"First test book\"},{\"name\":\"Second test book\"}]";
+
+        JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+    }
+
+    @Test
+    void getBookByName() throws Exception {
+        Book book = new Book("Test book");
+
+        Mockito.when(bookService.findByName("Test book")).thenReturn(Optional.of(book));
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/book?name=Test book")
+                .accept(MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+        String expected = "{\"name\":\"Test book\"}";
 
         JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
     }

@@ -5,6 +5,8 @@ import org.example.repository.BookRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class BookServiceImpl implements BookService {
 
@@ -23,5 +25,10 @@ public class BookServiceImpl implements BookService {
     @Override
     public Iterable<Book> findAll() {
         return  bookRepository.findAll();
+    }
+
+    @Override
+    public Optional<Book> findByName(String name) {
+        return bookRepository.findByName(name);
     }
 }
