@@ -37,7 +37,7 @@ public class UserController {
         return userService.findAll();
     }
 
-    @GetMapping(path="/user")
+    @GetMapping(path="/userId")
     public Optional<User> getUserById(@RequestParam Integer id) {
         return userService.findById(id);
     }

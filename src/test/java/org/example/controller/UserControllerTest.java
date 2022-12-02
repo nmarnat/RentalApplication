@@ -84,7 +84,26 @@ class UserControllerTest {
 
         Mockito.when(userService.findById(1)).thenReturn(Optional.of(user));
 
-        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/user?id=1")
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/userId?id=1")
+                .accept(MediaType.APPLICATION_JSON);
+
+        MvcResult result = mockMvc.perform(requestBuilder).andReturn();
+
+        String expected = "{\"id\":1,\"firstName\":\"Azerty\",\"lastName\":\"Uiop\"}";
+
+        JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
+    }
+
+    @Test
+    void getUserByLastName() throws Exception {
+        User user = new User();
+        user.setId(1);
+        user.setFirstName("Azerty");
+        user.setLastName("Uiop");
+
+        Mockito.when(userService.findByLastName("Uiop")).thenReturn(Optional.of(user));
+
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.get("/userName?lastName=Uiop")
                 .accept(MediaType.APPLICATION_JSON);
 
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
