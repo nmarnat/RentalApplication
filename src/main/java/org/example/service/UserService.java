@@ -10,4 +10,6 @@ public interface UserService {
     Iterable<User> findAll();
 
     Optional<User> findById(Integer id);
+
+    Optional<User> findByLastName(String lastName);
 }

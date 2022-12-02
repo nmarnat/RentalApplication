@@ -41,4 +41,9 @@ public class UserController {
     public Optional<User> getUserById(@RequestParam Integer id) {
         return userService.findById(id);
     }
+
+    @GetMapping(path="/userName")
+    public Optional<User> getUserByLastName(@RequestParam String lastName) {
+        return userService.findByLastName(lastName);
+    }
 }

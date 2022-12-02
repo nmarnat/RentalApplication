@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -24,9 +27,17 @@ public class RentalController {
     }
 
     @PostMapping(path="/rental")
-    public Rental addRental (@RequestParam User user, @RequestParam Date startDate, @RequestParam Date endDate,
-                         @RequestParam List<Book> books) {
-        Rental rental = new Rental(user, startDate, endDate, books);
+    public Rental addRental (@RequestParam String userName, @RequestParam Integer startDate, @RequestParam Integer endDate,
+                         @RequestParam List<String> books) throws ParseException {
+
+        SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");
+        Date startdate = originalFormat.parse(startDate.toString());
+        Date enddate = originalFormat.parse(endDate.toString());
+
+        // TODO corriger ce code pour récupérer livre s'il existe
+        Book b1 = new Book(books.get(0));
+        List<Book> listBooks = List.of(b1);
+        Rental rental = new Rental(userName, startdate, enddate, listBooks);
 
         rentalService.save(rental);
         return rental;

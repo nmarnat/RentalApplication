@@ -1,29 +1,40 @@
 package org.example.model;
 
+import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
 
-
+@Entity
 public class Rental {
 
-    private User user;
+    @Id
+    @GeneratedValue
+    private Integer id;
+    @Column(name = "user_name")
+    private String userName;
+    @Column(name = "start_date")
     private Date startDate;
+    @Column(name = "end_date")
     private Date endDate;
+    @Column(name = "books")
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Book> books;
 
-    public Rental(User user, Date startDate, Date endDate, List<Book> books) {
-        this.user = user;
+    public Rental(String userName, Date startDate, Date endDate, List<Book> books) {
+        this.userName = userName;
         this.startDate = startDate;
         this.endDate = endDate;
         this.books = books;
     }
 
-    public User getUser() {
-        return user;
+    public Rental() {}
+
+    public String getUser() {
+        return userName;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser(String userName) {
+        this.userName = userName;
     }
 
     public Date getStartDate() {
