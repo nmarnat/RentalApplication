@@ -1,26 +1,17 @@
 package org.example.controller;
 
-import org.example.model.Book;
 import org.example.model.Rental;
-import org.example.model.User;
 import org.example.service.BookService;
 import org.example.service.RentalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
 public class RentalController {
 
     private final RentalService rentalService;
-
-    private BookService bookService;
 
     @Autowired
     public RentalController(RentalService rentalService) {
