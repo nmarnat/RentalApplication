@@ -30,11 +30,11 @@ public class Rental {
     public Rental() {
     }
 
-    public String getUser() {
+    public String getUserName() {
         return userName;
     }
 
-    public void setUser(String userName) {
+    public void setUserName(String userName) {
         this.userName = userName;
     }
 

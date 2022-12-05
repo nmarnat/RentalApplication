@@ -5,6 +5,8 @@ import org.example.repository.RentalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Optional;
+
 @Service
 public class RentalServiceImpl implements RentalService {
 
@@ -22,6 +24,16 @@ public class RentalServiceImpl implements RentalService {
 
     @Override
     public Iterable<Rental> findAll() {
-        return  rentalRepository.findAll();
+        return rentalRepository.findAll();
+    }
+
+    @Override
+    public Optional<Rental> findById(Integer id) {
+        return rentalRepository.findById(id);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        rentalRepository.deleteById(id);
     }
 }
