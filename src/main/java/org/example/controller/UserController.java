@@ -3,14 +3,10 @@ package org.example.controller;
 import org.example.model.User;
 import org.example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
-// TODO endpoint books, affiné pour get un seul
 @RestController
 public class UserController {
 
@@ -21,30 +17,39 @@ public class UserController {
         this.userService = userService;
     }
 
-    @PostMapping(path="/user")
-    public User addUser (@RequestParam String firstName, @RequestParam String lastName,
-                         @RequestParam(name="id",required=false) Integer id) {
-        User user = new User();
-        user.setId(id);
-        user.setFirstName(firstName);
-        user.setLastName(lastName);
-
-        userService.save(user);
-        return user;
+    @PostMapping("/users")
+    public User addUser(@RequestBody User user) {
+        return userService.save(user);
     }
 
-    @GetMapping(path="/users")
+    @GetMapping("/users")
     public Iterable<User> getAllUsers() {
         return userService.findAll();
     }
 
-    @GetMapping(path="/userId")
-    public Optional<User> getUserById(@RequestParam Integer id) {
+    @GetMapping("/users/{id}")
+    public Optional<User> getUserById(@PathVariable Integer id) {
         return userService.findById(id);
     }
 
-    @GetMapping(path="/userName")
-    public Optional<User> getUserByLastName(@RequestParam String lastName) {
-        return userService.findByLastName(lastName);
+    @PutMapping("/users/{id}")
+    public User updateUser(@RequestBody User newUser, @PathVariable Integer id) {
+        return userService.findById(id)
+                .map(user -> {
+                    user.setFirstName(newUser.getFirstName());
+                    user.setLastName(newUser.getLastName());
+                    return userService.save(user);
+                })
+                .orElseGet(() -> userService.save(newUser));
     }
+
+    @DeleteMapping("/users/{id}")
+    void deleteUser(@PathVariable Integer id) {
+        userService.deleteById(id);
+    }
+
+//    @GetMapping(path="/users/{name}")
+//    public Optional<User> getUserByLastName(@PathVariable String name) {
+//        return userService.findByLastName(name);
+//    }
 }

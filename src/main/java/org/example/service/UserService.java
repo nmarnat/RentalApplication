@@ -12,4 +12,6 @@ public interface UserService {
     Optional<User> findById(Integer id);
 
     Optional<User> findByLastName(String lastName);
+
+    void deleteById(Integer id);
 }

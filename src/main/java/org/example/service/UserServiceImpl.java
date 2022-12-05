@@ -24,7 +24,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public Iterable<User> findAll() {
-        return  userRepository.findAll();
+        return userRepository.findAll();
     }
 
     @Override
@@ -35,5 +35,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public Optional<User> findByLastName(String lastName) {
         return userRepository.findByLastName(lastName);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        userRepository.deleteById(id);
     }
 }

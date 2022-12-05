@@ -39,10 +39,7 @@ public class BookController {
                     book.setName(newBook.getName());
                     return bookService.save(book);
                 })
-                .orElseGet(() -> {
-                    newBook.setId(id);
-                    return bookService.save(newBook);
-                });
+                .orElseGet(() -> bookService.save(newBook));
     }
 
     @DeleteMapping("/books/{id}")
