@@ -16,6 +16,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// TODO endpoint general /rentals
 @RestController
 public class RentalController {
 
@@ -31,7 +32,7 @@ public class RentalController {
     @PostMapping(path = "/rental")
     public Rental addRental(@RequestParam String userName, @RequestParam Integer startDate, @RequestParam Integer endDate,
                             @RequestParam List<String> books) {
-
+        // TODO mettre dans service
         SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");
         Date startdate = new Date();
         Date enddate = new Date();

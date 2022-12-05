@@ -31,4 +31,14 @@ public class BookServiceImpl implements BookService {
     public Optional<Book> findByName(String name) {
         return bookRepository.findByName(name);
     }
+
+    @Override
+    public Optional<Book> findById(Integer id) {
+        return bookRepository.findById(id);
+    }
+
+    @Override
+    public void deleteById(Integer id) {
+        bookRepository.deleteById(id);
+    }
 }

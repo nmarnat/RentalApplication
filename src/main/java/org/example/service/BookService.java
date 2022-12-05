@@ -10,4 +10,8 @@ public interface BookService {
     Iterable<Book> findAll();
 
     Optional<Book> findByName(String name);
+
+    Optional<Book> findById(Integer id);
+
+    void deleteById(Integer id);
 }

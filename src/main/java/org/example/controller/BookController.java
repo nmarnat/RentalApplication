@@ -3,10 +3,7 @@ package org.example.controller;
 import org.example.model.Book;
 import org.example.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
@@ -20,21 +17,40 @@ public class BookController {
         this.bookService = bookService;
     }
 
-    @PostMapping(path="/book")
-    public Book addBook (@RequestParam String name) {
-        Book book = new Book(name);
-
-        bookService.save(book);
-        return book;
+    @PostMapping("/books")
+    public Book addBook(@RequestBody Book book) {
+        return bookService.save(book);
     }
 
-    @GetMapping(path="/books")
+    @GetMapping("/books")
     public Iterable<Book> getAllBooks() {
         return bookService.findAll();
     }
 
-    @GetMapping(path= "/book")
-    public Optional<Book> getBookByName(@RequestParam String name) {
-        return bookService.findByName(name);
+    @GetMapping(path = "/books/{id}")
+    public Optional<Book> getBookById(@PathVariable Integer id) {
+        return bookService.findById(id);
     }
+
+    @PutMapping("/books/{id}")
+    public Book updateBook(@RequestBody Book newBook, @PathVariable Integer id) {
+        return bookService.findById(id)
+                .map(book -> {
+                    book.setName(newBook.getName());
+                    return bookService.save(book);
+                })
+                .orElseGet(() -> {
+                    newBook.setId(id);
+                    return bookService.save(newBook);
+                });
+    }
+
+    @DeleteMapping("/books/{id}")
+    void deleteBook(@PathVariable Integer id) {
+        bookService.deleteById(id);
+    }
+//    @GetMapping(path= "/books/{name}")
+//    public Optional<Book> getBookByName(@PathVariable String name) {
+//        return bookService.findByName(name);
+//    }
 }
