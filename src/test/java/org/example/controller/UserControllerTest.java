@@ -32,34 +32,28 @@ class UserControllerTest {
 
     @Test
     void testAddUser() throws Exception {
-        User user = new User();
+        User user = new User("Azerty", "Uiop");
         user.setId(1);
-        user.setFirstName("Nicola");
-        user.setLastName("Marnat");
 
         Mockito.when(userService.save(Mockito.any(User.class))).thenReturn(user);
 
-        RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/user?id=1&firstName=Nicola&lastName=Marnat")
+        RequestBuilder requestBuilder = MockMvcRequestBuilders.post("/user?id=1&firstName=Azerty&lastName=Uiop")
                 .accept(MediaType.APPLICATION_JSON);
 
         MvcResult result = mockMvc.perform(requestBuilder).andReturn();
 
-        String expected = "{\"id\":1,\"firstName\":\"Nicola\",\"lastName\":\"Marnat\"}";
+        String expected = "{\"id\":1,\"firstName\":\"Azerty\",\"lastName\":\"Uiop\"}";
 
         JSONAssert.assertEquals(expected, result.getResponse().getContentAsString(), false);
     }
 
     @Test
     void testGetAllUsers() throws Exception {
-        User user1 = new User();
+        User user1 = new User("Azerty", "Uiop");
         user1.setId(1);
-        user1.setFirstName("Azerty");
-        user1.setLastName("Uiop");
 
-        User user2 = new User();
+        User user2 = new User("Qsdfgh", "Jklm");
         user2.setId(2);
-        user2.setFirstName("Qsdfgh");
-        user2.setLastName("Jklm");
 
         List<User> users = Arrays.asList(user1, user2);
 
@@ -77,10 +71,8 @@ class UserControllerTest {
 
     @Test
     void testGetUserById() throws Exception {
-        User user = new User();
+        User user = new User("Azerty", "Uiop");
         user.setId(1);
-        user.setFirstName("Azerty");
-        user.setLastName("Uiop");
 
         Mockito.when(userService.findById(1)).thenReturn(Optional.of(user));
 
@@ -96,10 +88,8 @@ class UserControllerTest {
 
     @Test
     void getUserByLastName() throws Exception {
-        User user = new User();
+        User user = new User("Azerty", "Uiop");
         user.setId(1);
-        user.setFirstName("Azerty");
-        user.setLastName("Uiop");
 
         Mockito.when(userService.findByLastName("Uiop")).thenReturn(Optional.of(user));
 

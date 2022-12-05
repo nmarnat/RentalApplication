@@ -27,7 +27,8 @@ public class Rental {
         this.books = books;
     }
 
-    public Rental() {}
+    public Rental() {
+    }
 
     public String getUser() {
         return userName;

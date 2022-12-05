@@ -6,12 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="4c085bab-f1fb-4352-b0be-6bf6da678ad3" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/BookController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/controller/RentalController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/controller/RentalController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/repository/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/BookService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/BookService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/Rental.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/Rental.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/example/model/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/model/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/example/service/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/example/service/BookServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/BookControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/BookControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/org/example/controller/UserControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/org/example/controller/UserControllerTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,8 +91,8 @@
       <recent name="org.example.controller" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.BookControllerTest.getBookByName">
-    <configuration name="BookControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Spring Boot.Main">
+    <configuration name="RentalControllerTest.testAddRental" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RentalApplication" />
       <extension name="coverage">
         <pattern>
@@ -102,13 +101,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.controller" />
-      <option name="MAIN_CLASS_NAME" value="org.example.controller.BookControllerTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.RentalControllerTest" />
+      <option name="METHOD_NAME" value="testAddRental" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="BookControllerTest.getBookByName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="RentalControllerTest.testGetAllRentals" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RentalApplication" />
       <extension name="coverage">
         <pattern>
@@ -117,8 +117,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="org.example.controller" />
-      <option name="MAIN_CLASS_NAME" value="org.example.controller.BookControllerTest" />
-      <option name="METHOD_NAME" value="getBookByName" />
+      <option name="MAIN_CLASS_NAME" value="org.example.controller.RentalControllerTest" />
+      <option name="METHOD_NAME" value="testGetAllRentals" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -139,7 +139,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="UserControllerTest.getUserByLastName" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="UserControllerTest.testGetAllUsers" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="RentalApplication" />
       <extension name="coverage">
         <pattern>
@@ -149,7 +149,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="org.example.controller" />
       <option name="MAIN_CLASS_NAME" value="org.example.controller.UserControllerTest" />
-      <option name="METHOD_NAME" value="getUserByLastName" />
+      <option name="METHOD_NAME" value="testGetAllUsers" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -170,11 +170,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.BookControllerTest.getBookByName" />
-        <item itemvalue="Spring Boot.Main" />
+        <item itemvalue="JUnit.RentalControllerTest.testGetAllRentals" />
+        <item itemvalue="JUnit.RentalControllerTest.testAddRental" />
         <item itemvalue="JUnit.UserControllerTest" />
-        <item itemvalue="JUnit.UserControllerTest.getUserByLastName" />
-        <item itemvalue="JUnit.BookControllerTest" />
+        <item itemvalue="JUnit.UserControllerTest.testGetAllUsers" />
+        <item itemvalue="Spring Boot.Main" />
       </list>
     </recent_temporary>
   </component>
@@ -190,7 +190,8 @@
       <workItem from="1669819598751" duration="1492000" />
       <workItem from="1669899409657" duration="10332000" />
       <workItem from="1669983162113" duration="7519000" />
-      <workItem from="1669990708173" duration="860000" />
+      <workItem from="1669990708173" duration="1344000" />
+      <workItem from="1670234620857" duration="3048000" />
     </task>
     <servers />
   </component>

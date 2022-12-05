@@ -21,7 +21,6 @@ public class RentalController {
 
     private final RentalService rentalService;
 
-    @Autowired
     private BookService bookService;
 
     @Autowired
@@ -29,24 +28,31 @@ public class RentalController {
         this.rentalService = rentalService;
     }
 
-    @PostMapping(path="/rental")
-    public Rental addRental (@RequestParam String userName, @RequestParam Integer startDate, @RequestParam Integer endDate,
-                         @RequestParam List<String> books) throws ParseException {
+    @PostMapping(path = "/rental")
+    public Rental addRental(@RequestParam String userName, @RequestParam Integer startDate, @RequestParam Integer endDate,
+                            @RequestParam List<String> books) {
 
         SimpleDateFormat originalFormat = new SimpleDateFormat("yyyyMMdd");
-        Date startdate = originalFormat.parse(startDate.toString());
-        Date enddate = originalFormat.parse(endDate.toString());
+        Date startdate = new Date();
+        Date enddate = new Date();
+        try {
+            startdate = originalFormat.parse(startDate.toString());
+            enddate = originalFormat.parse(endDate.toString());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
 
-        // TODO corriger ce code pour récupérer livre s'il existe
+        // TODO corriger code pour récupérer livre s'il existe
+//        List<Book> listBooks = books.stream().map(Book::new).collect(Collectors.toList());
         List<Book> listBooks = books.stream().filter(b -> bookService.findByName(b).isPresent())
-                .map(b->bookService.findByName(b).get()).collect(Collectors.toList());
+                .map(b -> bookService.findByName(b).get()).collect(Collectors.toList());
         Rental rental = new Rental(userName, startdate, enddate, listBooks);
 
         rentalService.save(rental);
         return rental;
     }
 
-    @GetMapping(path="/rentals")
+    @GetMapping(path = "/rentals")
     public Iterable<Rental> getAllRentals() {
         return rentalService.findAll();
     }
