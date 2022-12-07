@@ -46,4 +46,9 @@ public class BookServiceImpl implements BookService {
     public void deleteById(Integer id) {
         bookRepository.deleteById(id);
     }
+
+    @Override
+    public Iterable<Book> findAllWithRental() {
+        return bookRepository.findByRentalIsNotNull();
+    }
 }

@@ -1,6 +1,7 @@
 package org.example.service;
 
 import org.example.model.Book;
+import org.example.model.User;
 
 import java.util.Optional;
 
@@ -16,4 +17,6 @@ public interface BookService {
     void deleteAll();
 
     void deleteById(Integer id);
+
+    Iterable<Book> findAllWithRental();
 }

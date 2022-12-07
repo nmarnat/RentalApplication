@@ -27,6 +27,11 @@ public class BookController {
         return bookService.findAll();
     }
 
+    @GetMapping("/books/rental")
+    public Iterable<Book> getBooksWithRental() {
+        return bookService.findAllWithRental();
+    }
+
     @GetMapping(path = "/books/{id}")
     public Optional<Book> getBookById(@PathVariable Integer id) {
         return bookService.findById(id);
