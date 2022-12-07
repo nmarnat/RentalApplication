@@ -46,7 +46,7 @@ class RentalControllerTest {
         Date startDate = new Date(2022, 10, 5);
         Date endDate = new Date(2022, 10, 6);
 
-        Rental rental = new Rental(user.getLastName(), startDate, endDate, books);
+        Rental rental = new Rental(user, startDate, endDate, books);
 
         Mockito.when(rentalService.save(Mockito.any(Rental.class))).thenReturn(rental);
 
@@ -62,6 +62,7 @@ class RentalControllerTest {
 
     @Test
     void testGetAllRentals() throws Exception {
+        User user = new User("Azerty", "Uiop");
         Book book = new Book("Test book");
         book.setId(1);
         List<Book> books = List.of(book);
@@ -72,7 +73,7 @@ class RentalControllerTest {
         Date startDate = new Date(2022, 10, 4);
         Date endDate = new Date(2022, 10, 5);
 
-        Rental rental = new Rental("Uiop", startDate, endDate, books);
+        Rental rental = new Rental(user, startDate, endDate, books);
         List<Rental> rentals = List.of(rental);
 
         Mockito.when(rentalService.findAll()).thenReturn(rentals);

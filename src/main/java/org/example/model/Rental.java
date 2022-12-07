@@ -12,8 +12,8 @@ public class Rental {
     @Id
     @GeneratedValue
     private Integer id;
-    @JoinColumn(name = "user_id")
-    @OneToOne(cascade = CascadeType.MERGE)
+    @OneToOne(cascade = {CascadeType.MERGE})
+    @JoinColumn(name = "user")
     private User user;
     @Column(name = "start_date")
     private Date startDate;

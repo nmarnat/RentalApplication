@@ -16,4 +16,6 @@ public interface UserService {
     void deleteAll();
 
     void deleteById(Integer id);
+
+    Iterable<User> findAllWithRental();
 }

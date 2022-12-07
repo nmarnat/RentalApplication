@@ -32,6 +32,11 @@ public class UserController {
         return userService.findById(id);
     }
 
+    @GetMapping("/users/rental")
+    public Iterable<User> getUsersWithRental() {
+        return userService.findAllWithRental();
+    }
+
     @PutMapping("/users/{id}")
     public User updateUser(@RequestBody User newUser, @PathVariable Integer id) {
         return userService.findById(id)

@@ -17,8 +17,7 @@ public class User {
     private String lastName;
 
     @JsonBackReference
-    @OneToOne
-    @JoinColumn(name = "rental_id")
+    @OneToOne(mappedBy = "user")
     private Rental rental;
 
     public User() {

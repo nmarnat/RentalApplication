@@ -46,4 +46,9 @@ public class UserServiceImpl implements UserService {
     public void deleteById(Integer id) {
         userRepository.deleteById(id);
     }
+
+    @Override
+    public Iterable<User> findAllWithRental() {
+        return userRepository.findByRentalIsNotNull();
+    }
 }
