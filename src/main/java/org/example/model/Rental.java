@@ -13,7 +13,7 @@ public class Rental {
     @GeneratedValue
     private Integer id;
     @JoinColumn(name = "user_id")
-    @OneToOne
+    @OneToOne(cascade = CascadeType.MERGE)
     private User user;
     @Column(name = "start_date")
     private Date startDate;
@@ -21,7 +21,7 @@ public class Rental {
     private Date endDate;
 
     @Column(name = "books")
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.MERGE)
     private List<Book> books;
 
     public Rental(User user, Date startDate, Date endDate, List<Book> books) {
