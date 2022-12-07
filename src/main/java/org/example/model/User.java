@@ -1,9 +1,8 @@
 package org.example.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 
 // TODO differencier object java et entity
 @Entity
@@ -16,6 +15,11 @@ public class User {
     private String firstName;
     @Column(name = "last_name")
     private String lastName;
+
+    @JsonBackReference
+    @OneToOne
+    @JoinColumn(name = "rental_id")
+    private Rental rental;
 
     public User() {
     }
@@ -47,5 +51,13 @@ public class User {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public Rental getRental() {
+        return rental;
+    }
+
+    public void setRental(Rental rental) {
+        this.rental = rental;
     }
 }

@@ -43,6 +43,8 @@ public class UserController {
                 .orElseGet(() -> userService.save(newUser));
     }
 
+    @DeleteMapping("/users")
+    void deleteAllUsers() { userService.deleteAll(); }
     @DeleteMapping("/users/{id}")
     void deleteUser(@PathVariable Integer id) {
         userService.deleteById(id);

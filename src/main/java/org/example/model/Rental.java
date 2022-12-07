@@ -1,5 +1,7 @@
 package org.example.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -10,18 +12,20 @@ public class Rental {
     @Id
     @GeneratedValue
     private Integer id;
-    @Column(name = "user_name")
-    private String userName;
+    @JoinColumn(name = "user_id")
+    @OneToOne
+    private User user;
     @Column(name = "start_date")
     private Date startDate;
     @Column(name = "end_date")
     private Date endDate;
+
     @Column(name = "books")
     @OneToMany(cascade = CascadeType.ALL)
     private List<Book> books;
 
-    public Rental(String userName, Date startDate, Date endDate, List<Book> books) {
-        this.userName = userName;
+    public Rental(User user, Date startDate, Date endDate, List<Book> books) {
+        this.user = user;
         this.startDate = startDate;
         this.endDate = endDate;
         this.books = books;
@@ -30,12 +34,12 @@ public class Rental {
     public Rental() {
     }
 
-    public String getUserName() {
-        return userName;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public Date getStartDate() {

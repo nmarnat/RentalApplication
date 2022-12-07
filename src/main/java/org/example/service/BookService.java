@@ -13,5 +13,7 @@ public interface BookService {
 
     Optional<Book> findById(Integer id);
 
+    void deleteAll();
+
     void deleteById(Integer id);
 }

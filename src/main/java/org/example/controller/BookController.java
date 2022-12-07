@@ -42,6 +42,9 @@ public class BookController {
                 .orElseGet(() -> bookService.save(newBook));
     }
 
+    @DeleteMapping("/books")
+    void deleteAllBooks() { bookService.deleteAll(); }
+
     @DeleteMapping("/books/{id}")
     void deleteBook(@PathVariable Integer id) {
         bookService.deleteById(id);

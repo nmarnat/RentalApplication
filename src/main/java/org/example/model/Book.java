@@ -1,9 +1,8 @@
 package org.example.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+import javax.persistence.*;
 
 @Entity
 public class Book {
@@ -14,11 +13,16 @@ public class Book {
     @Column(name = "book_name")
     private String name;
 
+    @JsonBackReference
+    @ManyToOne
+    private Rental rental;
+
     public Book(String name) {
         this.name = name;
     }
 
-    public Book() {}
+    public Book() {
+    }
 
     public Integer getId() {
         return id;
@@ -27,11 +31,20 @@ public class Book {
     public void setId(Integer id) {
         this.id = id;
     }
+
     public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Rental getRental() {
+        return rental;
+    }
+
+    public void setRental(Rental rental) {
+        this.rental = rental;
     }
 }

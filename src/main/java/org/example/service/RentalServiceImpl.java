@@ -33,7 +33,13 @@ public class RentalServiceImpl implements RentalService {
     }
 
     @Override
+    public void deleteAll() {
+        rentalRepository.deleteAll();
+    }
+
+    @Override
     public void deleteById(Integer id) {
         rentalRepository.deleteById(id);
     }
+
 }

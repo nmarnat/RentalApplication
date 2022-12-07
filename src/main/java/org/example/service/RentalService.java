@@ -12,5 +12,9 @@ public interface RentalService {
 
     Optional<Rental> findById(Integer id);
 
+    void deleteAll();
+
     void deleteById(Integer id);
+
+
 }
