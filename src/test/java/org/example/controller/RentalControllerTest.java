@@ -40,7 +40,6 @@ class RentalControllerTest {
         book.setId(2);
         List<Book> books = List.of(book);
 
-        // TODO utiliser LocalDate au lieu de Date, import book service
 //        LocalDate startDate = LocalDate.of(2022, 11, 5);
 //        LocalDate endDate = LocalDate.of(2022, 11, 6);
         Date startDate = new Date(2022, 10, 5);
@@ -67,7 +66,6 @@ class RentalControllerTest {
         book.setId(1);
         List<Book> books = List.of(book);
 
-        // TODO utiliser LocalDate au lieu de Date, import book service
 //        LocalDate startDate = LocalDate.of(2022, 11, 5);
 //        LocalDate endDate = LocalDate.of(2022, 11, 6);
         Date startDate = new Date(2022, 10, 4);

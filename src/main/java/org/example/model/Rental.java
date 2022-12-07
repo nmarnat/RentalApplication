@@ -18,6 +18,7 @@ public class Rental {
     @Column(name = "end_date")
     private Date endDate;
 
+    // TODO autoriser delete rental
     @Column(name = "books")
     @OneToMany(cascade = CascadeType.MERGE)
     private List<Book> books;

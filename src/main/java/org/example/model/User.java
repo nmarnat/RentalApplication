@@ -4,7 +4,6 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import javax.persistence.*;
 
-// TODO differencier object java et entity
 @Entity
 public class User {
 
