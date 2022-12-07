@@ -1,7 +1,5 @@
 package org.example.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
@@ -12,7 +10,7 @@ public class Rental {
     @Id
     @GeneratedValue
     private Integer id;
-    @OneToOne(cascade = {CascadeType.MERGE})
+    @OneToOne(cascade = CascadeType.MERGE)
     @JoinColumn(name = "user")
     private User user;
     @Column(name = "start_date")
