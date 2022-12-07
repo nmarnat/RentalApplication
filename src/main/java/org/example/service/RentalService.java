@@ -1,12 +1,14 @@
 package org.example.service;
 
+import org.example.exception.InvalidRentalException;
 import org.example.model.Rental;
 
 import java.util.Optional;
-import java.util.stream.DoubleStream;
 
 public interface RentalService {
-    Rental save(Rental rental);
+    Rental save(Rental rental) throws InvalidRentalException;
+
+    Rental saveOrUpdate(Rental rental);
 
     Iterable<Rental> findAll();
 
@@ -15,6 +17,5 @@ public interface RentalService {
     void deleteAll();
 
     void deleteById(Integer id);
-
 
 }
