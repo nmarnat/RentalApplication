@@ -49,11 +49,20 @@ public class RentalServiceImpl implements RentalService {
 
     @Override
     public void deleteAll() {
+        Iterable<Rental> rentals = rentalRepository.findAll();
+        rentals.forEach(rental -> {
+            rental.getBooks().forEach(b -> {
+                bookService.findById(b.getId()).ifPresent(book -> book.setRental(null));
+            });
+        });
         rentalRepository.deleteAll();
     }
 
     @Override
     public void deleteById(Integer id) {
+        rentalRepository.findById(id).ifPresent(r -> {
+            r.getBooks().forEach(b -> bookService.findById(b.getId()).ifPresent(book -> book.setRental(null)));
+        });
         rentalRepository.deleteById(id);
     }
 
